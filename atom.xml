@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
+  <title>木子手记</title>
+  <id>http://jinking.github.io/</id>
+  <updated>2015-11-03T15:47:51+08:00</updated>
+  <subtitle>技术文档、读书札记及零散的思想碎片</subtitle>
+  <link href="http://jinking.github.io/"></link>
+  <author>
+    <name>木子手记</name>
+  </author>
+  <entry>
+    <title>视觉格式化模型之替换元素与非替换元素</title>
+    <updated>2015-10-29T10:30:00+08:00</updated>
+    <id>tag:,2015-10-29:</id>
+    <content type="html">替换元素与非替换元素的概念在视觉格式化模型中非常重要的，在区分框类型和计算元素尺寸的时候，都需要对它进行区分。</content>
+    <link href="http:\jinking.github.io\post\2015\10\29\replaced-element.html"></link>
+    <author>
+      <name>金金</name>
+    </author>
+  </entry>
+</feed>

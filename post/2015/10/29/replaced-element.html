@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="视觉格式化模型,">
+        <meta name="description" content="视觉格式化模型之替换元素与非替换元素">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/github.css">
+        <title>视觉格式化模型之替换元素与非替换元素</title>
+    </head>
+    <body>
+        <article class="container">
+            <a class="index" href="/">木子手记</a>
+<ul class="menu">
+    <li class="menu-item"><a href="/archive.html">归档</a></li>
+    <li class="menu-item"><a href="/tag.html">标签</a></li>
+    <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+</ul>
+
+            <article class="main article">
+                <h1 class="title">视觉格式化模型之替换元素与非替换元素</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/header01.jpg);"></span>
+                    <a class="name" href="/about.me.html">金金</a>
+                    <span class="date" data-time="1446083280">
+                        <span class="from"></span>
+                        <span class="date" data-time="1446085800">(<span class="from"></span> 更新)</span>
+                    </span>
+                    <span class="tags"><a class="tag" href="/tag/%e8%a7%86%e8%a7%89%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%a8%a1%e5%9e%8b/index.html">视觉格式化模型</a></span>
+                </section>
+                <article class="content"><h2>一、替换元素</h2>
+
+<blockquote>
+<p>一个内容不受CSS视觉格式化模型控制，CSS渲染模型并不考虑对此内容的渲染，且元素本身一般拥有固有尺寸（宽度，高度，宽高比）的元素，被称之为<strong>替换元素</strong>。</p>
+</blockquote>
+
+<p>比如，img元素的内容通常会被其src属性指定的图像替换掉。替换元素通常有其固有的尺寸：一个固有的宽度，一个固有的高度和一个固有的比率。比如一幅位图有固有用绝对单位指定的宽度和高度，从而也有固有的宽高比率。另一方面，其他文档也可能没有固有的尺寸，比如一个空白的html文档。</p>
+
+<p><strong>CSS渲染模型不考虑替换元素内容的渲染</strong>。这些替换元素的展现独立于CSS。object,video,textarea,input也是替换元素,audio和canvas在某些特定情形下为替换元素。使用CSS的content属性插入的对象是匿名替换元素。</p>
+
+<h2>二、非替换元素</h2>
+
+<p>w3c并没有给出明确的非置换元素的解释，但能确定的是除替换元素之外，所有的元素都是非替换元素。</p>
+
+<p><strong>由CSS的视觉格式化模型负责非替换元素的渲染。</strong></p>
+
+<h2>三、替换元素和非替换元素的常见问题</h2>
+
+<h3>1. 是否行内元素都不能设置宽度？</h3>
+
+<p>这是一个面试的时候经常遇到的一个坑。很多初学者的第一反应<strong>“行内元素不能设置宽高，其宽高都是尤其内容决定”</strong>。上面这句话，真是一个大坑，大家千万别当真。
+行内元素，如果是行内替换元素，如 <code>img</code>, 它是可以设置宽高的。造成这种错觉的原因是，替换元素太少了。</p>
+
+<h3>2. 行内替换元素和行内非替换元素的高度计算</h3>
+
+<p>对于行内级非替换元素，高度设置是不适用的。</p>
+
+<p>对于行内级置换元素来说，其高度的设置需遵循以下几点：</p>
+
+<ul>
+<li>若宽高的计算值都为 <code>auto</code> 且元素有固有高度，则 <code>height</code>的使用值为该固有高度；</li>
+<li>若高度的计算值为 <code>auto</code> 且元素有固有高度，则 <code>height</code> 的使用值为该固有高度；</li>
+<li>若高度的计算值为 <code>auto</code> 且宽度有 <code>非auto</code> 的计算值，并且元素有固有宽高比，则 <code>height</code> 的使用值为：宽度使用值 / 固有宽高比；</li>
+<li>若高度的计算值为 <code>auto</code> 且上述条件完全不符，则 <code>height</code> 的使用值 不能大于150px，且宽度不能大于长方形高度的2倍。</li>
+</ul>
+
+<p><em>其它类型的置换元素，其高度的定义都参照行内置换元素的定义。</em></p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/header01.jpg);"></div>
+                    <a class="name" href="/about.me.html">金金</a>
+                    <div class="intro">一枚奔跑在前端路上的男子</div>
+                </section>
+                <section class="recommend">
+                    
+                    
+                </section>
+                <section id="disqus_thread"></section>
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        木子手记 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/js/jquery-1.11.2.min.js"></script>
+        <script src="/js/highlight.pack.js"></script>
+        <script src="/js/jquery.unveil.js"></script>
+        <script src="/js/index.js"></script>
+        <script type="text/javascript">
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//somebody.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+    </body>
+</html>
