@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>木子手记</title>
   <id>http://jinking.github.io/</id>
-  <updated>2015-11-03T15:47:51+08:00</updated>
+  <updated>2015-11-03T17:38:12+08:00</updated>
   <subtitle>技术文档、读书札记及零散的思想碎片</subtitle>
   <link href="http://jinking.github.io/"></link>
   <author>
     <name>木子手记</name>
   </author>
+  <entry>
+    <title>用Nodejs写一个Mock Server</title>
+    <updated>2015-11-03T16:23:00+08:00</updated>
+    <id>tag:,2015-11-03:</id>
+    <content type="html">为了更好的分工合作，让前端能在不依赖后端环境的情况下进行开发，其中一种手段就是为前端开发者提供一个web容器，这个本地环境就是 mock server。</content>
+    <link href="http:\jinking.github.io\post\2015\11\03\nodejs-mock-server.html"></link>
+    <author>
+      <name>金金</name>
+    </author>
+  </entry>
   <entry>
     <title>视觉格式化模型之替换元素与非替换元素</title>
     <updated>2015-10-29T10:30:00+08:00</updated>
