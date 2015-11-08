@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="CSS,CSS属性探秘,">
+        <meta name="description" content="CSS属性探秘之margin">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/github.css">
+        <title>CSS属性探秘之margin</title>
+    </head>
+    <body>
+        <article class="container">
+            <a class="index" href="/">木子手记</a>
+<ul class="menu">
+    <li class="menu-item"><a href="/archive.html">归档</a></li>
+    <li class="menu-item"><a href="/tag.html">标签</a></li>
+    <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+</ul>
+
+            <article class="main article">
+                <h1 class="title">CSS属性探秘之margin</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/header01.jpg);"></span>
+                    <a class="name" href="/about.me.html">金金</a>
+                    <span class="date" data-time="1446997380">
+                        <span class="from"></span>
+                        <span class="date" data-time="1446997380">(<span class="from"></span> 更新)</span>
+                    </span>
+                    <span class="tags"><a class="tag" href="/tag/CSS/index.html">CSS</a><a class="tag" href="/tag/CSS%e5%b1%9e%e6%80%a7%e6%8e%a2%e7%a7%98/index.html">CSS属性探秘</a></span>
+                </section>
+                <article class="content"><h2>1. margin概述</h2>
+
+<h3>1.1 定义</h3>
+
+<blockquote>
+<p>Margins in CSS serve to add both horizontal and vertical space between boxes. &ndash;<a href="https://drafts.csswg.org/css-box/#the-margin-properties">W3C</a></p>
+</blockquote>
+
+<p>翻译：CSS中的margin用来添加盒子之间的水平和垂直间隙。</p>
+
+<p><code>margin</code> 同时也被成为 <strong>外边距</strong>。按照它的W3C定义，很明了的知道，它主要是用来限定盒子边框与其他相邻盒子边框之间的距离。如同马路上汽车与汽车之间的安全距离一样，但是CSS中的外边距可比汽车之间的安全距离自由多了，可以零距离和负距离，你汽车来个负距离试试。</p>
+
+<p>margin是个复合属性，属性简写设置所有四个方向的外边距，而其他外边距属性只设置其各自方向的宽度。这些属性应用于所有元素，但<strong>垂直外边距在非替代行内元素上不起作用</strong>。</p>
+
+<h3>1.2 margin与盒模型的关系</h3>
+
+<p>如下图：
+<img src="/images/loader.gif" data-src="http://static.zybuluo.com/jink/vown7oozjy9uzjsk2iy7khjz/23ed2c1db2a91fe6d080f8359b634fac.gif" alt="Box Modle" /></p>
+
+<p>无论是哪种盒模型，<code>border</code> 和 <code>margin</code> 的值，都不参与盒模型尺寸的计算。如其定义所说，<strong>它只是用来添加盒子之间的水平和垂直间隙</strong>。</p>
+
+<h3>1.3 margin与排版页面</h3>
+
+<p><code>margin</code> 的设置，会影响页面排版。</p>
+
+<p>把参与页面布局的盒子想象成一个个国家，一旦一个盒子声明了外边距，就是意味着，从外边距的边界开始，里面的领土都是其私有领地，任何不经过通过同意都不能进入它的领地与领空。如果它设置负边距，向上或者向左移动，旁边的盒子里面会占领它下边或者右边的空间（文档流的特性，尽量填充满整个页面）。</p>
+
+<p>这个特性注意需要和相对定位区别开来。
+<img src="/images/loader.gif" data-src="http://static.zybuluo.com/jink/r0e1tsjz72uz85w06hqu4l52/QQ%E5%9B%BE%E7%89%8720151107142230.png" alt="margin layout" />
+因为正常文档元素通过设置margin属性，<strong>既有文档流的流动性，又没有脱离正常文档流，还可以用于定位，参与页面的正常排版</strong>，所有经常会用来实现一些页面布局。后面会有介绍。</p>
+
+<h2>2. 属性值的设置</h2>
+
+<p>由于 <code>margin</code> 是一个复合属性，与 <code>border</code> 和 <code>padding</code> 一样，由四个值组成，方向是：上→右→下→左。分别是：</p>
+
+<pre><code class="language-css">margin: margin-top margin-right margin-bottom margin-left;
+</code></pre>
+
+<p>其它略写方式，如设置为三个值，两个值，一个值的情况，这里就不做赘述。</p>
+
+<p>每个 <code>margin</code> 方向上可设置值如下表：</p>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>auto</td>
+<td>浏览器计算外边距。</td>
+</tr>
+
+<tr>
+<td>length</td>
+<td>规定以具体单位计的外边距值，比如像素、厘米等。默认值是 0px。</td>
+</tr>
+
+<tr>
+<td>%</td>
+<td>规定基于父元素的宽度的百分比的外边距。</td>
+</tr>
+
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承外边距。</td>
+</tr>
+</tbody>
+</table>
+
+<h3>2.1 值为auto时的表现</h3>
+
+<p>常用的就是让一个块级元素水平居中：<code>margin:0 auto;</code>，这句代码确实有效，还十分实用，但是有人就是爱较真，会忍不住k可能会问出下面两个问题：
+&gt;1. 为什么 <code>auto</code> 能让块级元素水平居中？
+&gt;2. 为什么通过margin不能实现块级元素垂直居中？</p>
+
+<p>在W3C的文档关于<strong>块级非置换元素</strong>的宽度计算有如下规定：
+&gt;此时，包含块宽度=<code>margin-left</code> + <code>border-left-width</code> + <code>padding-left</code> + <code>width</code> + <code>padding-right</code> + <code>border-right-width</code> + <code>margin-right</code>。(关于包含块的概念，这里暂时不做解释，以后会有文章专门介绍)。盒子的宽度计算时，如果有一个值设置为 <code>auto</code>,则该<strong>使用值</strong>由等式求出。</p>
+
+<ol>
+<li>若 width 设置 auto, 则其他 auto 值变成 0 且 width值由等式求出。</li>
+<li>若 margin-left 与 margin-right 都是 auto, 则他们的使用值相等。这会将元素水中居中在包含块中。</li>
+</ol>
+
+<p>由于块级元素（基本上所有的块级元素都是块级非置换元素），所有它的包含块会占据整行。在通过上面第2条，就很容易得出结论。</p>
+
+<p>另外，如果只是设置 <code>margin-left: auto;</code> 会怎样呢？ 这个疑问大家可以自己试试。</p>
+
+<p>从上面得出的结论是：<strong>正常文档流中的块级元素，一旦width或者水平margin值设置为auto，那意味着尽可能的占据。</strong></p>
+
+<p>关于第二个问题，想通过margin的auto来实现垂直居中，这个就不好意思了，肯定是行不通的。原因也很简单：<strong>标准规定：垂直方向上的外边距计算，都是采取保守策略，尽量采取最小值，如果是auto，则当作0</strong>。</p>
+
+<h3>2.2 值为百分比时的表现</h3>
+
+<p>先看一个例子：</p>
+
+<pre><code class="language-html">&lt;style type=&quot;text/css&quot;&gt;
+    .demo-container {
+        width:1000px;
+        height: 600px;
+        background: #f2f3f5;
+    }
+    .demo {
+        margin: 10% 5%;
+        background-color: pink;
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;div class=&quot;demo-container&quot;&gt;
+        &lt;div class=&quot;demo&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>大伙猜猜，div.demo的margin计算值为多少?</p>
+
+<blockquote>
+<p>A: 计算值为 <code>margin: 100px 30px;</code> ！</p>
+
+<p>Q: 确定么？</p>
+
+<p>A: 确定！</p>
+
+<p>Q: 恭喜你答错了！正确答案是： <code>margin: 100px 50px;</code>，没想到吧</p>
+
+<p>A: 不可能，你丫忽悠我吧，给我解释解释那个垂直方向外边距的50px从哪来的</p>
+
+<p>Q: 简单呀， 1000*5%</p>
+
+<p>A: &hellip;</p>
+</blockquote>
+
+<p>我猜很多人都猜不到这个结果，怎么可以高度和宽度的百分比都参照包含块的宽度进行计算呢？</p>
+
+<p>关于值设置为%时的表现，W3C上只有一句：</p>
+
+<blockquote>
+<p>百分比按照生成框的包含块的<strong>宽度</strong>计算。</p>
+</blockquote>
+
+<p>个人理解，在一个复合属性中，如果可以几个值都可以设置百分比，其百分比的参照肯定一致。这是算是方便计算吧。</p>
+
+<p>如果想参照包含块的高度行不行呢？
+答案是肯定的，行！只要CSS中设置如下：</p>
+
+<pre><code class="language-css">.demo{
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: tb-rl; 
+}
+</code></pre>
+
+<p>没想到吧，原来都是书写模式搞的鬼！</p>
+
+<h2>3. 折叠外边距</h2>
+
+<h3>3.1 什么是折叠外边距？</h3>
+
+<p>代码：</p>
+
+<pre><code>.demo1 { margin: 10px 0;}
+.demo2 { margin: 20px 0;}
+.demo3 { margin: 30px 0;}
+</code></pre>
+
+<p><img src="/images/loader.gif" data-src="http://static.zybuluo.com/jink/xu0yq6jtqzjpl6epsrpsjbvk/QQ%E5%9B%BE%E7%89%8720151107163523.png" alt="margin折叠" /></p>
+
+<p>看到上面结果，是不是有点奇怪，为啥第一个Div和第二个Div之间的外边距只有20px，而不是30px。原因是，这里垂直方向上的外边距发生了折叠。</p>
+
+<blockquote>
+<p>在CSS中，两个以上的框（可能是兄弟，也可能不是）之间的相邻外边距可以被合并成一个单独的外边距。通过此方式合并的外边距被称为折叠，且产生的已合并的外边距被称为<strong>折叠外边距</strong>。</p>
+</blockquote>
+
+<p>相邻垂直外边距合并，除了：</p>
+
+<blockquote>
+<ul>
+<li>根元素的框的外边距不合并。</li>
+<li>如果一个有间隙的元素的上、下外边距相邻，则其外边距将与下面的兄弟的外边距合并，但产生的边距不会与父亲区块的下外边距合并。</li>
+</ul>
+</blockquote>
+
+<p>*水平外边距不会合并。（其实和<strong>书写模式</strong>有相关！）*。</p>
+
+<h3>3.2 什么情况下会产生折叠外边距</h3>
+
+<p>产生规则：<strong>处于同一个块级上下文（BFC）中的块元素，没有<code>行框</code>、没有<code>间隙</code>、没有<code>内边距</code>和<code>边框</code>隔开它们，这样的元素垂直边缘毗邻，则称之为相邻</strong>。</p>
+
+<p>通过上面规则介绍可知，产生折叠外边距必要有个三个条件：<strong>都是同一个BFC中的块元素</strong>、<strong>没被隔开</strong>、<strong>垂直边缘毗邻</strong>。</p>
+
+<p><strong>那什么是垂直边缘毗邻？</strong></p>
+
+<blockquote>
+<ul>
+<li>元素的上外边距和其属于常规流中的第一个孩子的上外边距。</li>
+<li>元素的下外边距和其属于常规流中的下一个兄弟的上外边距。</li>
+<li>属于常规流中的最后一个孩子的下外边距和其父亲的下外边距，如果其父亲的高度计算值为 auto。</li>
+<li>元素的上、下外边距，如果该元素没有建立新的块级格式上下文，且 min-height 的计算值为零、height 的计算值为零或 auto、且没有属于常规流中的孩子。</li>
+</ul>
+</blockquote>
+
+<h3>3.3 如何避免折叠外边距</h3>
+
+<p>因为产生折叠外边距的初衷是用来文字排版，但是目前却经常发生在页面布局中，这反而有点出人意料，折叠外边距在此时就这样被嫌弃了，需要被避免产生。</p>
+
+<p>避免的方法也很简单：</p>
+
+<blockquote>
+<ol>
+<li>让两个块元素处于不同BFC中</li>
+<li>用间距、内边距或者边框将之隔开</li>
+</ol>
+</blockquote>
+
+<h2>4. margin在布局中妙用</h2>
+
+<h3>4.1 经典的圣杯布局</h3>
+
+<p>圣杯布局是指左右两栏固定宽度，中间部分自适应的一种常见布局，如下图：</p>
+
+<p><img src="/images/loader.gif" data-src="http://static.zybuluo.com/jink/ke5rs0l8vwmpu1rzdyvbn2zd/98c345d7-4465-4219-982d-68309a85e5a7.JPG" alt="圣杯布局" /></p>
+
+<p>主要代码</p>
+
+<ul>
+<li>css部分：</li>
+</ul>
+
+<pre><code class="language-css">.demo-container {
+    overflow: hidden; /* 清除浮动 */
+    padding: 0 200px;
+}
+.left-nav, .right-nav, .main-wrap {
+    float: left;
+    height: 300px;
+}
+.main-wrap {
+    width: 100%;
+}
+.left-nav, .right-nav {
+    position: relative;
+    background-color: pink;
+    width: 200px;
+}
+.left-nav {
+    margin-left: -100%;
+    left: -200px;
+}
+.right-nav {
+    margin-left: -200px;
+    right: -200px;
+}
+</code></pre>
+
+<ul>
+<li>html部分：</li>
+</ul>
+
+<pre><code class="language-html">&lt;div class=&quot;demo-container&quot;&gt;
+    &lt;div class=&quot;main-wrap&quot;&gt;main&lt;/div&gt;
+    &lt;div class=&quot;left-nav&quot;&gt;left&lt;/div&gt;
+    &lt;div class=&quot;right-nav&quot;&gt;right&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>核心思想：利用负外边距和相对定位相互抵消来实现。</p>
+
+<h3>4.2 单列变三列（负外边距的妙用）</h3>
+
+<p>把单个列表变成三列：
+<img src="/images/loader.gif" data-src="http://static.zybuluo.com/jink/22bdithqc2hkrf0jod38yiu9/627140367-56376859d1d12_articlex.gif" alt="单列变三列" /></p>
+
+<p>实现超简单：</p>
+
+<ul>
+<li>html部分</li>
+</ul>
+
+<pre><code class="language-html">&lt;ul&gt; 
+    &lt;li class=&quot;col1&quot;&gt;Eggs&lt;/li&gt;
+    &lt;li class=&quot;col1&quot;&gt;Ham&lt;li&gt; 
+    &lt;li class=&quot;col2 top&quot;&gt;Bread&lt;li&gt; 
+    &lt;li class=&quot;col2&quot;&gt;Butter&lt;li&gt; 
+    &lt;li class=&quot;col3 top&quot;&gt;Flour&lt;li&gt; 
+    &lt;li class=&quot;col3&quot;&gt;Cream&lt;/li&gt; 
+&lt;/ul&gt;
+</code></pre>
+
+<ul>
+<li>css部分</li>
+</ul>
+
+<pre><code class="language-css">ul {list-style:none;}
+li {line-height:1.3em;}
+.col2 {margin-left:100px;}
+.col3 {margin-left:200px;}
+.top {margin-top:-2.6em;} /* the clincher */
+</code></pre>
+
+<p>通过对.top的添加margin-top:-2.6em。所有的元素会完美的对齐好。使用负边距会比使用相对定位好很多，因为你只需要给新的一列的第一个元素添加负边距即可。</p>
+
+<h3>4.3 其他应用</h3>
+
+<p>margin的其他使用，主要还是利用负外边距与float、内联框等，实现水平上的布局。</p>
+
+<h2>5.总结</h2>
+
+<p>之前从未想过，简单如margin这样的属性，仔细研究起来，居然也有这么多知识点。
+这个周末过的很颓废，窝在家看看电视剧，就过了&hellip;</p>
+
+<p>参考：</p>
+
+<p><a href="http://www.w3.org/html/ig/zh/wiki/CSS2/box#propdef-margin">W3C margin</a></p>
+
+<p><a href="http://blog.doyoe.com/2013/11/29/css/margin%E7%B3%BB%E5%88%97%E4%B9%8Bkeyword%20auto/">margin系列之keyword auto</a></p>
+
+<p>[负边距详解][9]</p>
+
+<p>[9]: <a href="http://segmentfault.com/a/1190000003942591">http://segmentfault.com/a/1190000003942591</a></p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/header01.jpg);"></div>
+                    <a class="name" href="/about.me.html">金金</a>
+                    <div class="intro">一枚奔跑在前端路上的男子</div>
+                </section>
+                <section class="recommend">
+                    
+                    
+                    <section class="nav next">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/post/2015/11/03/nodejs-mock-server.html">用Nodejs写一个Mock Server</a>
+                    </section>
+                    
+                </section>
+                <section id="disqus_thread"></section>
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        木子手记 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/js/jquery-1.11.2.min.js"></script>
+        <script src="/js/highlight.pack.js"></script>
+        <script src="/js/jquery.unveil.js"></script>
+        <script src="/js/index.js"></script>
+        <script type="text/javascript">
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//somebody.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+    </body>
+</html>
