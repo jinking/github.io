@@ -26,7 +26,7 @@
                     <a class="name" href="/about.me.html">金金</a>
                     <span class="date" data-time="1446997380">
                         <span class="from"></span>
-                        <span class="date" data-time="1446997380">(<span class="from"></span> 更新)</span>
+                        <span class="date" data-time="1447035240">(<span class="from"></span> 更新)</span>
                     </span>
                     <span class="tags"><a class="tag" href="/tag/CSS/index.html">CSS</a><a class="tag" href="/tag/CSS%e5%b1%9e%e6%80%a7%e6%8e%a2%e7%a7%98/index.html">CSS属性探秘</a></span>
                 </section>
@@ -105,12 +105,20 @@
 
 <h3>2.1 值为auto时的表现</h3>
 
-<p>常用的就是让一个块级元素水平居中：<code>margin:0 auto;</code>，这句代码确实有效，还十分实用，但是有人就是爱较真，会忍不住k可能会问出下面两个问题：
-&gt;1. 为什么 <code>auto</code> 能让块级元素水平居中？
-&gt;2. 为什么通过margin不能实现块级元素垂直居中？</p>
+<p>常用的就是让一个块级元素水平居中：<code>margin:0 auto;</code>，这句代码确实有效，还十分实用，但是有人就是爱较真，会忍不住k可能会问出下面两个问题：</p>
 
-<p>在W3C的文档关于<strong>块级非置换元素</strong>的宽度计算有如下规定：
-&gt;此时，包含块宽度=<code>margin-left</code> + <code>border-left-width</code> + <code>padding-left</code> + <code>width</code> + <code>padding-right</code> + <code>border-right-width</code> + <code>margin-right</code>。(关于包含块的概念，这里暂时不做解释，以后会有文章专门介绍)。盒子的宽度计算时，如果有一个值设置为 <code>auto</code>,则该<strong>使用值</strong>由等式求出。</p>
+<blockquote>
+<ol>
+<li>为什么 <code>auto</code> 能让块级元素水平居中？</li>
+<li>为什么通过margin不能实现块级元素垂直居中？</li>
+</ol>
+</blockquote>
+
+<p>在W3C的文档关于<strong>块级非置换元素</strong>的宽度计算有如下规定：</p>
+
+<blockquote>
+<p>此时，包含块宽度=<code>margin-left</code> + <code>border-left-width</code> + <code>padding-left</code> + <code>width</code> + <code>padding-right</code> + <code>border-right-width</code> + <code>margin-right</code>。(关于包含块的概念，这里暂时不做解释，以后会有文章专门介绍)。盒子的宽度计算时，如果有一个值设置为 <code>auto</code>,则该<strong>使用值</strong>由等式求出。</p>
+</blockquote>
 
 <ol>
 <li>若 width 设置 auto, 则其他 auto 值变成 0 且 width值由等式求出。</li>

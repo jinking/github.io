@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>木子手记</title>
   <id>http://jinking.github.io/</id>
-  <updated>2015-11-08T23:57:31+08:00</updated>
+  <updated>2015-11-09T10:14:09+08:00</updated>
   <subtitle>技术文档、读书札记及零散的思想碎片</subtitle>
   <link href="http://jinking.github.io/"></link>
   <author>
@@ -9,8 +9,8 @@
   </author>
   <entry>
     <title>CSS属性探秘之margin</title>
-    <updated>2015-11-08T23:43:00+08:00</updated>
-    <id>tag:,2015-11-08:</id>
+    <updated>2015-11-09T10:14:00+08:00</updated>
+    <id>tag:,2015-11-09:</id>
     <content type="html">margin作为CSS中使用频率最高的几个属性之一，作为前端攻城师的你，对他有几分了解呢？ 通过折叠外边距、负外边距的妙用让你了解你很少触及到的关于margin的知识。</content>
     <link href="http:\jinking.github.io\post\2015\11\08\css-margin.html"></link>
     <author>
